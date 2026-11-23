@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espace Cours & Annonces</title>
+  <!-- Tailwind CSS via CDN (aucune installation requise) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Icônes FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- En-tête -->
+  <header class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap"></i>
+          Espace Pédagogique
+        </h1>
+        <p class="text-indigo-200 text-sm mt-1">Annonces officielles et documents à télécharger</p>
+      </div>
+      <!-- Barre de recherche -->
+      <div class="relative w-full sm:w-64">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-indigo-300 text-sm"></i>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Rechercher un cours..."
+          class="w-full pl-9 pr-3 py-2 rounded-lg bg-indigo-800/70 text-white placeholder-indigo-300 text-sm focus:outline-none focus:ring-2 focus:ring-white"
+        />
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation par niveaux -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap gap-2" id="levelTabs">
+      <button data-level="tous" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition bg-indigo-600 text-white">
+        Tous les niveaux
+      </button>
+      <button data-level="tc" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+        Tronc Commun
+      </button>
+      <button data-level="1ere" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+        1ère Année
+      </button>
+      <button data-level="2eme" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+        2ème Année
+      </button>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-10">
+
+    <!-- Section Annonces -->
+    <section>
+      <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-bullhorn text-indigo-600"></i>
+        Annonces récentes
+      </h2>
+      <div id="annoncesContainer" class="space-y-3"></div>
+    </section>
+
+    <!-- Section Documents -->
+    <section>
+      <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-folder-open text-indigo-600"></i>
+        Documents à télécharger
+      </h2>
+      <div id="documentsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+    Espace Pédagogique &copy; 2026 — Hébergé sur Vercel
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
